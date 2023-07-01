@@ -2,4 +2,98 @@
 
 body, html {
     background-color: var.$bg;
+    font-family: regular;
+    letter-spacing: 2px;
+    color: white;
+    font-size: 1em;
+    width: 100%;
+    height: 100dvh;
+    overflow-x: hidden;
+    margin: 0;
 }
+
+ a, a:hover, a:focus, a:active {
+      text-decoration: none;
+      color: inherit;
+ }
+
+ ul{
+   padding-inline-start: 0px;
+   margin-block-start: 0px;
+   margin-block-end: 0px;
+ }
+ li {
+   text-decoration: none;
+   list-style-type: none;
+ }
+
+ #top-line {
+    height: 5px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: var.$primary;
+    border: none;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 580px;
+ }
+
+ button {
+   all: unset;
+ }
+
+ h2 {
+   margin-block-end: 0;
+   margin-block-start: 0;
+ }
+
+ hr {
+   width: 70%;
+   border: 2px solid var.$primary;
+ }
+
+ span {
+   text-decoration: underline;
+   text-decoration-color: var.$primary;
+ }
+
+ ::marker {
+   color: var.$primary;
+   -webkit-box-shadow: 0px 0px 15px 0px rgba(0,191,255,1);
+   -moz-box-shadow: 0px 0px 15px 0px rgba(0,191,255,1);
+   box-shadow: 0px 0px 15px 0px rgba(0,191,255,1);
+}
+
+::-webkit-scrollbar {
+   width: 0px;
+}
+::-webkit-scrollbar {
+   width: 0px!important;
+   background-color: transparent!important;
+}
+::-webkit-scrollbar-thumb {
+   background: #00bbff;
+}
+::-webkit-scrollbar-thumb {
+   border-radius: 0px!important;
+   height: 0px!important;
+}
+::-webkit-scrollbar-track {
+   background: transparent;
+}
+::-webkit-scrollbar-track {
+   border-radius: 0px!important;
+   background-color: transparent!important;
+}
+
+ /* Font Faces */
+
+ @font-face {
+    font-family: "regular";
+    src: url(../fonts/MADE-TOMMY-Regular.woff);
+ }
+
+ @font-face {
+    font-family: "bold";
+    src: url(../fonts/MADE-TOMMY-Bold.woff);
+ }

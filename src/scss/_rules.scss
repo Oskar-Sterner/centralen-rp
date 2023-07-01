@@ -1,0 +1,81 @@
+@use "variables" as var;
+@use "mixins" as m;
+
+#Rules {
+    min-height: 800px;
+    height: auto;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    h1 {
+        font-size: 4.5rem;
+        letter-spacing: 5px;
+        margin-block-end: 0em;
+        margin-block-start: 0.3em;
+    }
+    hr {
+        width: 20%!important;
+    }
+    #category-divider {
+        width: 30%!important;
+    }
+}
+
+#top-line-rules-container {
+    margin-top: 25px;
+    width: 79%;
+    @include m.top-line;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#rules-container {
+    width: 79%;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    margin-bottom: 25px;
+    padding: 10px;
+    background-color: var.$bg;
+    padding-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    a {
+        @include m.button;
+        @include m.small-tablet {
+            font-size: 0.9em;
+            height: auto!important;
+        }
+    }
+}
+
+#select-rule-buttons {
+    display: flex;
+    flex-direction: row;
+    column-gap: 5px;
+}
+
+#dynamic-rules-container {
+    display: flex;
+    flex-direction: column;
+    width: 98%;
+    padding: 10px;
+    border-radius: 15px;
+    margin-top: 10px;
+    div {
+        background-color: var.$button;
+        padding: 10px;
+        border-radius: 15px;
+        margin-bottom: 15px;
+    }
+}
+
+#sub-categories-container {
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 5px;
+}

@@ -1,0 +1,173 @@
+@use "variables" as var;
+@use "mixins" as m;
+
+#Hero {
+    min-height: 100dvh;
+    height: auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+#hero-video {
+    position: fixed;
+    top: 50%;  
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    min-width: 100%; 
+    min-height: 100%;
+    z-index: 1;
+}
+
+#Content {
+  margin: 0 auto 12vh auto;  
+  position: relative;
+  width: 50%;
+  display: flex;
+  z-index: 2;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  img{
+    transition: 300ms ease;
+  }
+}
+
+#preloader {
+  z-index: 9999;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: var.$bg;
+  img {
+    position: absolute;
+    top: 50%;  
+    left: 50%; 
+    transform: translate(-50%, -50%);
+  }
+}
+
+#ServerPanel {
+  @include m.small-tablet {
+    width: 140%;
+  }
+    background: var.$bg;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 30px 30px minmax(0, 1fr) auto;
+    gap: 10px 0px;
+    width: 560px;
+    margin-bottom: 25px;
+    align-items: center;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "host-name host-name host-name"
+        "connect-button . player-count"
+        "player-info player-info player-info"
+        "players players players";
+}
+
+#top-line-server-panel {
+  width: 580px;
+  @include m.top-line;
+  @include m.small-tablet {
+    width: 145%;
+  }
+}
+
+.host-name {
+  grid-area: host-name;
+  @include m.small-tablet {
+    font-size: 0.9rem;
+  }
+}
+
+.players {
+    grid-area: players;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-content: flex-start;
+    a{
+      background-color: var.$button;
+      padding: 5px;
+      border-radius: 5px;
+      width: 170px;
+      height: 29px;
+      transition: 300ms;
+      &:hover{
+        background-color: var.$primary;
+        cursor: pointer;
+      }
+    }
+}
+
+.modal {
+    padding: 10px;
+    border-radius: 15px;
+    background-color: #181818;
+    margin-block-end: 25px;
+    button{
+      &:hover{
+        background-color: red!important;
+      }
+      @include m.button
+    }
+}
+
+.connect-button {
+  grid-area: connect-button;
+  a {
+    margin-top: 5px;
+    @include m.button
+  }
+}
+
+.player-count {
+  grid-area: player-count;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  .player-count-live {
+    text-decoration: underline;
+    text-decoration-color: var.$primary;
+    @include m.small-tablet {
+      width: 100px;
+    }
+  }
+}
+
+.player-info {
+  grid-area: player-info;
+  button{
+    text-align: center;
+    margin-top: 5px;
+    width: 150px;
+    @include m.button
+  }
+}
+
+.player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1; //De-rendera div-elementet
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.fade-out {
+  animation: fadeOut 1s ease forwards;
+}
