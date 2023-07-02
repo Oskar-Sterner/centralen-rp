@@ -34,3 +34,15 @@
         @content;
     }
 }
+
+@mixin big-phone {
+    @media screen and (max-width: 620px) {
+        @content;
+    }
+}
+
+@mixin phone {
+    @media screen and (max-width: 520px) {
+        @content;
+    }
+}

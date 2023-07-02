@@ -15,15 +15,10 @@ function Hero() {
   ];
 
   const [logoRotation, setLogoRotation] = useState<number>(0);
-  const [clickCount, setClickCount] = useState<number>(0);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   const handleLogoClick = () => {
-    setClickCount((prevClickCount) => prevClickCount + 1);
-
-    if (clickCount === 2) {
-      setClickCount(0);
-      setLogoRotation(360);
-    }
+    setLogoRotation((prevRotation) => prevRotation + 360);
   };
 
   useEffect(() => {
@@ -43,11 +38,8 @@ function Hero() {
 
   return (
     <>
-      {/* <div id='preloader'>
-        <img src="src/assets/loader.gif" alt="Loader" />
-  </div>*/}
       <nav>
-        <ul>
+        <ul className={`desktop-nav ${isMenuOpen ? 'menu-open' : ''}`}>
           {links.map((link, index) => (
             <li key={index}>
               <a href="#">
@@ -57,7 +49,25 @@ function Hero() {
             </li>
           ))}
         </ul>
+        <div
+          className={`hamburger ${isMenuOpen ? 'active' : ''}`}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          <span className="line"></span>
+          <span className="line"></span>
+          <span className="line"></span>
+        </div>
       </nav>
+      <ul className={`mobile-nav ${isMenuOpen ? 'fade-in' : ''}`}>
+          {links.map((link, index) => (
+            <li key={index}>
+              <a href="#">
+                <img src={link.icon} alt={link.text} style={link.style} />
+                {link.text}
+              </a>
+            </li>
+          ))}
+      </ul>
       <div id="Hero">
         <div id="Content">
           <img

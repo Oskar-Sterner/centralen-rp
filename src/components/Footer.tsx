@@ -7,7 +7,7 @@ function Footer() {
         <div id='Footer'>
           <div id='Links'>
             <div id='bryggeriet-links'>
-              <h2>Bryggeriet RP</h2>
+              <h2>Centralen RP</h2>
               <hr />
               <a href="#">● Joina Servern!</a>
               <a href="#">● Discord</a>
